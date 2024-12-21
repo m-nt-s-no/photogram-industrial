@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@photo) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :image %>
+    <%= f.input :comments_count %>
+    <%= f.input :likes_count %>
+    <%= f.input :caption %>
+    <%= f.association :owner %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
