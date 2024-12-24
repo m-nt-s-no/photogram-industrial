@@ -1,8 +1,7 @@
-
 <div class="row">
   <div class="col-md-6 offset-3">
     <h1>
-      <%= @user.username %>
+      People <%= @user.username %> is following
     </h1>
 
     <ul class="nav nav-pills nav-justified">
@@ -25,7 +24,10 @@
   </div>
 </div>
 
-
-<% @user.own_photos.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
-<% end %>
+<ul class="list-group">
+  <% @user.leaders.each do |leader| %>
+    <li class="list-group-item">
+      <%= link_to "#{leader.username}", user_path(leader.username) %>
+    </li>
+  <% end %>
+</ul>
